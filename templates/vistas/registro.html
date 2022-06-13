@@ -1,0 +1,22 @@
+<!--Tomamos la base de nuestra plantilla principal -->
+{% extends 'base.html' %}
+
+<!-- Asignamos un titulo -->
+{% block titulo %}
+    Registro
+{% endblock titulo %}
+    
+<!-- Hacemos el contenido -->
+
+{% block contenido %}
+<div class="contenedor" style="min-height: 750px;">
+    <h1>Registrate</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <a class="btn" style="float: left; padding: 5px 20px; font-size: 15px; text-decoration: none;" href="/login/">Iniciar sesión</a>
+        <button type="submit" class="btn">Registrarme</button>
+    </form>
+</div>
+{% endblock contenido %}
+    

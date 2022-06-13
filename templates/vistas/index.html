@@ -1,0 +1,43 @@
+
+<!--Tomamos la base de nuestra plantilla principal -->
+{% extends 'base.html' %}
+
+<!-- Asignamos un titulo -->
+{% block titulo %}
+    Inicio
+{% endblock titulo %}
+    
+<!-- Hacemos el contenido -->
+
+{% block contenido %}
+<div class="contenedor" style="text-align: center; min-height: 300px;">
+    <h2>Bienvenido de nuevo {{ user.first_name }} {{ user.last_name }}</h2>
+    <p>Tu nombre de usuario: {{ user }}</p>
+    <p>Tu correo electrónico: {{ user.email }}</p>
+    <p>Puedes ingresar al administrador?: 
+    {% if user.is_staff %}
+        Si
+    {% else %}
+        No
+    {% endif %}
+        </p>
+    <p>Eres superusuario?: 
+    {% if user.is_superuser %}
+        Si
+    {% else %}
+        No
+    {% endif %}
+    
+    {% if user.rol %}
+    <p>Tu rol es: {{ user.rol }}</p>
+    {% else %}
+    <p>Aún no tienes un rol asignado</p>      
+    {% endif %}
+
+    </p>
+    <a class="btn" style="text-decoration: none; float: left;" href="cambiar-password/">Cambiar contraseña</a>
+    <a class="btn" style="text-decoration: none;" href="logout/">Cerrar sesión</a>
+
+</div>
+{% endblock contenido %}
+    

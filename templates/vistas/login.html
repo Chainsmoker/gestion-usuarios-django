@@ -1,0 +1,33 @@
+<!--Tomamos la base de nuestra plantilla principal -->
+{% extends 'base.html' %}
+
+<!-- Asignamos un titulo -->
+{% block titulo %}
+    Login
+{% endblock titulo %}
+    
+<!-- Hacemos el contenido -->
+{% block contenido %}
+<div class="contenedor">
+    <h1>Iniciar Sesión</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.username.name }}">Nombre de usuario</label>
+            <input type="text" name="{{ form.username.name }}" id="username" class="form-control" placeholder="Example123">
+        </div>
+        <div class="form-group">
+            <label for="{{ form.password.name }}">Contraseña</label>
+            <input type="password" name="{{ form.password.name }}" id="password" class="form-control">
+        </div>
+        <div class="error">{{ form.errors }}</div>
+        <a class="btn" style="float: left; padding: 5px 20px; font-size: 15px; text-decoration: none;" href="/registro/">Registrarme</a>
+        <button type="submit" class="btn">Iniciar Sesión</button>
+
+        <div style="position: absolute; bottom: 0; margin-bottom: 20px;" class="olvide-password">
+            <a href="/reset-password/">Olvidaste tu contraseña?</a>
+        </div>
+    </form>
+</div>
+{% endblock contenido %}
+    

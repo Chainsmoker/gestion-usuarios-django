@@ -1,0 +1,21 @@
+<!--Tomamos la base de nuestra plantilla principal -->
+{% extends 'base.html' %}
+
+<!-- Asignamos un titulo -->
+{% block titulo %}
+    Olvide mi contraseña
+{% endblock titulo %}
+    
+<!-- Hacemos el contenido -->
+
+{% block contenido %}
+<div class="contenedor" style="min-height: 320px;">
+    <h1>Correo enviado con exito!</h1>
+    <p>Le enviamos instrucciones por correo electrónico para configurar su contraseña, si existe una cuenta con el correo electrónico que ingresó. Debería recibirlos en breve.
+
+        Si no recibe un correo electrónico, asegúrese de haber ingresado la dirección con la que se registró y verifique su carpeta de correo no deseado.
+        
+        </p>
+</div>
+{% endblock contenido %}
+    
